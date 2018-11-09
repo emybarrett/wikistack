@@ -1,7 +1,9 @@
 const router = require("express").Router();
+const addPage = require("../views/addPage");
+
 
 router.get("/", (req, res) => {
-  res.send("retrieve all wiki pages");
+  res.send('here are our pages');
 });
 
 router.post("/", (req, res) => {
@@ -9,7 +11,7 @@ router.post("/", (req, res) => {
 });
 
 router.get("/add", (req, res) => {
-  res.send("retrieve the 'add a page' form");
+  res.send(addPage());
 })
 
 module.exports = router;

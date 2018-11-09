@@ -14,9 +14,9 @@ app.use(express.urlencoded({extended: false }));
 app.use('/wiki', wikiRouter);
 app.use('/user', userRouter);
 
-app.get('/', (rec, res) => {
-  res.send(layout(''));
-})
+app.get('/', (req, res, next) => {
+  res.redirect('/wiki');
+});
 
 models.db.authenticate().
 then(() => {
@@ -29,7 +29,7 @@ const sync = async () => {
 }
 sync();
 
-const PORT = 1337;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`App listening in port ${PORT}`);
 });
